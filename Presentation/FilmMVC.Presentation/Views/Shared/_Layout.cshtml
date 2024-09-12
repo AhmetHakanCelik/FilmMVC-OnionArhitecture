@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FilmMVC.Presentation</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FilmMVC.Presentation.styles.css" asp-append-version="true" />
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Sitesi</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            min-height: 125vh; 
+        }
+        body {
+            background: linear-gradient(to right, #1c92d2, #f2fcfe);
+        }
+    </style>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Sitesi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Film Sitesi</h1>
+            @if (ViewData["PageName"] != null && ViewData["PageName"].ToString() == "Index")
+            {
+                @await Html.PartialAsync("PartialViews/_AddButton")
+            }
+        </div>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-kategori">
+                <h4>Kategoriler</h4>
+                <ul>
+                    <li><a href="#">Aksiyon</a></li>
+                    <li><a href="#">Dram</a></li>
+                    <li><a href="#">Komedi</a></li>
+                    <li><a href="#">Bilim Kurgu</a></li>
+                </ul>
+            </div>
+            <div class="footer-link">
+                <h4>Keşfet</h4>
+                <ul>
+                    <li><a href="#">Popüler Filmler</a></li>
+                    <li><a href="#">Yeni Çıkanlar</a></li>
+                    <li><a href="#">İzlenmesi Gerekenler</a></li>
+                </ul>
+            </div>
+            <div class="footer-hukuk">
+                <h4>Hukuki Bilgiler</h4>
+                <ul>
+                    <li><a href="#">Kullanım Koşulları</a></li>
+                    <li><a href="#">Gizlilik Politikası</a></li>
+                    <li><a href="#">Çerez Politikası</a></li>
+                </ul>
+            </div>
+            <div class="footer-sosyal">
+                <h4>Bizi Takip Edin</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+</html>
+

@@ -1,0 +1,48 @@
+﻿@model FilmsAndCategoryViewModel
+
+@{
+    ViewData["PageName"] = "Index";
+}
+
+<form method="get" asp-action="Index" class="filter-form">
+    <section class="arama-cubugu">
+        <input type="text" placeholder="Film, dizi veya kategori ara...">
+        <button type="submit">Ara</button>
+    </section>
+    <div class="form-group search-section">
+        <select id="category" name="categoryId" class="category-select">
+            <option value="">Tüm Kategoriler</option>
+            @foreach (var category in Model.Categories)
+            {
+                <option value="@category.CategoryId">@category.CategoryName
+            </option>
+            }
+        </select>
+        <button type="submit" class="cubuk">Ara</button>
+    </div>
+</form>
+
+<section class="film-galeri">
+    @foreach (var film in Model.Films)
+    {
+        <div class="film-karti">
+            <img src="data:image/jpeg;base64,@film.ImageBase64" alt="@film.FilmName" />
+            <a href="@Url.Action("Details", "Home", new { id = film.FilmId })" class="detay-buton">Detay</a>
+        </div>
+    }
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const input = document.getElementById('category');
+
+        if (localStorage.getItem('category')) {
+            input.value = localStorage.getItem('category');
+        }
+
+
+        input.addEventListener('change', () => {
+            localStorage.setItem('category', input.value);
+        });
+    });
+</script>
